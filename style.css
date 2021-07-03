@@ -12,8 +12,7 @@ body{
 	background: #091921;
 }
 .clock{
-	
-	position:fixed;
+	position: fixed;
 	width: 250px;
 	height: 250px;
 	display: inline-flex;
@@ -24,6 +23,7 @@ body{
 	background-size: cover;
 	border: 8px solid #091921;
 	border-radius: 50%;
+	transform: rotate(-90deg);
 	z-index: 50;
 	box-shadow: 0 -15px 15px rgba(255,255,255,0.05),
 				inset 0 -15px 15px rgba(255,255,255,0.05),
@@ -91,10 +91,13 @@ body{
 }
 .wrapper{
 	position: absolute;
-  height: 255px;
-  width: 255px;
+	left: -7px;
+	top: -6px;
+  height: 263px;
+  width: 263px;
   background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
   border-radius:50%;
+  transform: rotate(-90deg);
   animation: animate 1.5s linear infinite;
 }
 .wrapper .display,
@@ -277,7 +280,7 @@ body{
 		}
 		.watch {
 			position: relative;
-			top: -46.5px;
+			top: -49.5px;
 			left: -55px;
 			width: 263px;
 			height: 263px;
@@ -292,4 +295,3 @@ body{
 			width: 30px;
 			height: 30px;
 		}
-
