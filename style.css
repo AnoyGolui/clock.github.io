@@ -12,9 +12,10 @@ body{
 	background: #091921;
 }
 .clock{
+	position:fixed;
 	width: 250px;
 	height: 250px;
-	display: flex;
+	display: inline-flex;
 	justify-content: center;
 	align-items: center;
 	background: url(clock.png);
