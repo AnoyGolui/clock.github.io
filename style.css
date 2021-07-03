@@ -12,6 +12,7 @@ body{
 	background: #091921;
 }
 .clock{
+	top:auto;
 	position:fixed;
 	width: 250px;
 	height: 250px;
