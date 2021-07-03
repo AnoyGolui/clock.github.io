@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Clock</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body>
+	<div id="wrapper">
+		<div class="wrist-watch-outer-wrap">
+			<div class="wrist-watch-wrap">
+				<div id="pin"></div>
+				<div class="strap">	
+				<div class="hole-1"></div>
+					  <div class="hole-2"></div>
+					  <div class="hole-3"></div>
+					  <div class="hole-4"></div>
+					  <div class="hole-5"></div> 		
+				</div>
+
+				<div class="watch-wrap">
+					<div class="watch">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clock" id="clock" onclick="change()">
+		<div class="hour">
+			<div class="hr" id="hr"></div>
+		</div>
+		<div class="min">
+			<div class="mn" id="mn"></div>
+		</div>
+		<div class="sec">
+			<div class="sc" id="sc"></div>
+		</div>
+	</div>
+      <div class="wrapper" id="wrap" onclick="reverse()">
+         <div class="display">
+            <div id="time"></div>
+         </div>
+         <span></span>
+         <span></span>
+      </div>
+    
+
+	<script>
+		const deg = 6;
+		const hr = document.querySelector('#hr');
+		const mn = document.querySelector('#mn');
+		const sc = document.querySelector('#sc');
+
+		setInterval(()=>{
+			let day = new Date();
+		let hh = day.getHours() * 30;
+		let mm = day.getMinutes() * deg;
+		let ss = day.getSeconds() * deg;
+
+		hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
+		mn.style.transform = `rotateZ(${mm}deg)`;
+		sc.style.transform = `rotateZ(${ss}deg)`;
+		})
+         setInterval(()=>{
+           const time = document.querySelector(".display #time");
+           let date = new Date();
+           let hours = date.getHours();
+           let minutes = date.getMinutes();
+           let seconds = date.getSeconds();
+           let day_night = "AM";
+           if(hours > 12){
+             day_night = "PM";
+             hours = hours - 12;
+           }
+           if(seconds < 10){
+             seconds = "0" + seconds;
+           }
+           if(minutes < 10){
+             minutes = "0" + minutes;
+           }
+           if(hours < 10){
+             hours = "0" + hours;
+           }
+           time.textContent = hours + ":" + minutes + ":" + seconds + " "+ day_night;
+         });
+
+         document.getElementById("wrap").style.visibility = "hidden";
+         
+         function change(){
+         	document.getElementById("wrap").style.visibility = "visible";
+         	document.getElementById("clock").style.visibility = "hidden" ;
+         }
+         function reverse(){
+         	document.getElementById("wrap").style.visibility = "hidden";
+         	document.getElementById("clock").style.visibility = "visible";
+         }
+      </script>
+</body>
+</html>
